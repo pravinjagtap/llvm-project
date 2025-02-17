@@ -1056,10 +1056,10 @@ class VOP3_CVT_SCALE_SR_PK_F4_F32_TiedInput_Profile<VOPProfile P> : VOP3_Profile
 
   let Src0RC64 = !if(!gt(P.Src0VT.Size, 32), getVOP3VSrcReg9ForVT<P.Src0VT>.ret,
                                              getVOP3SrcForVT<P.Src0VT>.ret);
-  let InsVOP3OpSel = (ins PackedVGPRF32InputMods: $src0_modifiers, Src0RC64:$src0,
-                          Int32InputMods:     $src1_modifiers, Src1RC64:$src1,
-                          FP32InputMods:      $src2_modifiers, Src2RC64:$src2,
-                          VGPR_32:$vdst_in,   op_sel0:$op_sel);
+  let InsVOP3OpSel = (ins PackedVGPRF32InputMods:$src0_modifiers,
+      Src0RC64:$src0, Int32InputMods:$src1_modifiers, Src1RC64:$src1,
+      FP32InputMods:$src2_modifiers, Src2RC64:$src2, VGPR_32:$vdst_in,
+      op_sel0:$op_sel);
   let HasClamp = 0;
   let HasExtVOP3DPP = 0;
   let HasOpSel = 1;
